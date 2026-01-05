@@ -59,7 +59,22 @@ if (mysqli_num_rows($arts) > 0) {
 }
 ?>
 </div>
+<h3>📞 Contact Barista</h3>
 
+<?php
+$phone = preg_replace('/\D/', '', $b['phone']); // clean phone
+$whatsapp = (strlen($phone) == 10) ? "25".$phone : $phone;
+?>
+
+<a href="tel:<?php echo $b['phone']; ?>" 
+   style="display:inline-block;padding:10px;background:#444;color:#fff;text-decoration:none;border-radius:5px;margin-right:10px;">
+   📞 Call
+</a>
+
+<a href="https://wa.me/<?php echo $whatsapp; ?>" target="_blank"
+   style="display:inline-block;padding:10px;background:#25D366;color:#fff;text-decoration:none;border-radius:5px;">
+   💬 WhatsApp
+</a>
 <a href="search.php">⬅ Back to Search</a>
 
 </body>
